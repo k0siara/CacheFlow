@@ -12,5 +12,4 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include ':sample'
-include ':flow-cache'
+include ':flow-cache', ':sample'

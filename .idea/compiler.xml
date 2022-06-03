@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="flow-cache.app" target="11" />
+      <module name="flow-cache.sample" target="11" />
       <module name="flowcache.sample" target="11" />
     </bytecodeTargetLevel>
   </component>
