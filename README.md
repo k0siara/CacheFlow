@@ -2,11 +2,11 @@
 
 📦 Kotlin Library that allows you to easily manage Cache in your app.
 
-[![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml)
+[![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml) [![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow)
 
 ## How to include in your project
 
-Add `jitpack` repository to your project root `build.gradle` (or `build.gradle.kts`):
+Add `jitpack` repository to your project root `build.gradle` (or `build.gradle.kts`)
 
 ``` groovy
 // build.gradle
@@ -19,7 +19,7 @@ allprojects {
 }
 ```
 
-For newer projects (Gradle above 6.8), you need to also update the `settings.gradle` file's `dependencyResolutionManagement` block:
+For newer projects (Gradle above 6.8), you need to also update the `settings.gradle` file's `dependencyResolutionManagement` block
 
 ```
 dependencyResolutionManagement {
@@ -33,14 +33,15 @@ dependencyResolutionManagement {
 }
 ```
 
-Add the dependency to your module's `build.gradle` (or `build.gradle.kts`):
+Add the dependency to your module's `build.gradle` (or `build.gradle.kts`)
 
 ``` groovy
 dependencies {
-  implementation 'com.github.k0siara:cache-flow:<current_version>'
+  implementation 'com.github.k0siara:cacheflow:<version>'
 }
 
 ```
+See the top of this README to find the newest version ⬆️
 
 License
 =======
