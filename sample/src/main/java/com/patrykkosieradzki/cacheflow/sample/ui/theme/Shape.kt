@@ -1,4 +1,4 @@
-package com.patrykkosieradzki.cacheflow.ui.theme
+package com.patrykkosieradzki.cacheflow.sample.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

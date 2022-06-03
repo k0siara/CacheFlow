@@ -1,4 +1,4 @@
-package com.patrykkosieradzki.cacheflow.ui.theme
+package com.patrykkosieradzki.cacheflow.sample.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

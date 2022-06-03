@@ -1,4 +1,4 @@
-package com.patrykkosieradzki.cacheflow.data
+package com.patrykkosieradzki.cacheflow.sample.data
 
 import kotlinx.coroutines.delay
 

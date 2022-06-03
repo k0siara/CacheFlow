@@ -1,4 +1,4 @@
-package com.patrykkosieradzki.cacheflow
+package com.patrykkosieradzki.cacheflow.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.patrykkosieradzki.cacheflow.ui.theme.CacheFlowExampleTheme
+import com.patrykkosieradzki.cacheflow.sample.ui.theme.CacheFlowExampleTheme
 
 class MainActivity : ComponentActivity() {
 

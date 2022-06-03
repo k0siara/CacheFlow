@@ -1,4 +1,4 @@
-package com.patrykkosieradzki.cacheflow.data
+package com.patrykkosieradzki.cacheflow.sample.data
 
 import com.patrykkosieradzki.cacheflow.ListCacheFlow
 
