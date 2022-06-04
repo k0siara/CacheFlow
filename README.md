@@ -22,19 +22,19 @@ Here's and example Repository that holds cache after searching animals by a spec
 
 ``` kotlin
 class AnimalCachedRepository {
-    private val cacheMap by lazy { MutableStateFlow(HashMap<String, List<Animal>>) }
-    val flow by lazy { cacheMap.asStateFlow() }
+    private val mapCache by lazy { MutableStateFlow(HashMap<String, List<Animal>>) }
+    val flow by lazy { mapCache.asStateFlow() }
     
     fun cacheAnimalsByQuery(query: String, animals: List<Animal>) {
-        cacheMap.update { it.apply { put(query, animals) } }   
+        mapCache.update { it.apply { put(query, animals) } }   
     }
     
     fun getCachedAnimalsByQuery(query: String): List<Animal>? {
-        return cacheMap.value.getOrElse(query, defaultValue = { null })
+        return mapCache.value.getOrElse(query, defaultValue = { null })
     }
     
     fun invalidate() {
-        cacheMap.update { it.apply { clear() } }
+        mapCache.update { it.apply { clear() } }
     }
 }
 ```
@@ -52,24 +52,18 @@ class AnimalCachedRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow
     value class Query(val value: String)
 }
 ```
-
-Want to cache more things in one Repository? That's no problem. Here's an example how you can do that:
+\
+Want to cache more things in one Repository? Here's how you can do that:
 ``` kotlin
 class AnimalCachedRepository {
-    private val cacheMap by MapCacheFlow.lazyInMemoryMapCache<String, List<Animal>>()
-    val flow by lazy { cacheMap.flow }
+    private val mapCache by MapCacheFlow.lazyInMemoryMapCache<String, List<Animal>>()
+    private val intCache by CacheFlow.lazyInMemoryCache<Int?>(
+        initialValue = null,
+        onInvalidate = { null }
+    )
+    // Other caches you need  
     
-    fun cacheAnimalsByQuery(query: String, animals: List<Animal>) {
-        cacheMap.save(query, animals)
-    }
-    
-    fun getCachedAnimalsByQuery(query: String): List<Animal>? {
-        return cacheMap.get(query)
-    }
-    
-    fun invalidate() {
-        cacheMap.invalidate()
-    }
+    // Caching logic
 }
 ```
 
