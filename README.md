@@ -14,7 +14,9 @@ The problem is that usually caching in apps is messy, the code is repeated many 
 ## Overview
 CacheFlow library solves this problem for you, prioviding several ready-to-use caching mechanisms that are **thread-safe** and based on Kotlin Flow (for now only in-memory, more to come in the future)
 
-One way to create a in-memory cache is to use MutableStateFlow. See the example below:
+One way to create a in-memory cache is to use MutableStateFlow. \
+\
+Here's and example repo that holds cache after searching animals by a specific query:
 
 ``` kotlin
 class AnimalRepository {
@@ -35,6 +37,19 @@ class AnimalRepository {
 }
 ```
 
+Imagine writing this for every cache that your app has. I've been there and decided that it's time to do something about it.
+\
+\
+Here's the same class, but is uses CacheFlow instead:
+``` kotlin
+class AnimalRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
+    
+    // Added only to increase readability
+    @JvmInline
+    value class Query(val value: String)
+}
+```
+
 ``` kotlin
 class AnimalRepository {
     private val cacheMap by MapCacheFlow.lazyInMemoryMapCache<String, List<Animal>>()
@@ -51,15 +66,6 @@ class AnimalRepository {
     fun invalidate() {
         cacheMap.invalidate()
     }
-}
-```
-
-``` kotlin
-class AnimalRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
-    
-    // Added only to increase readability
-    @JvmInline
-    value class Query(val value: String)
 }
 ```
 
