@@ -4,6 +4,7 @@ object Versions {
     internal const val ANDROID_GRADLE_PLUGIN = "7.2.0"
     internal const val ANDROID_GRADLE_SPOTLESS = "6.3.0"
     internal const val KOTLIN = "1.6.21"
+    internal const val COROUTINES_CORE = "1.6.2"
 
     internal const val JUNIT = "4.13.2"
 }
@@ -15,6 +16,10 @@ object Dependencies {
 
     const val spotlessGradlePlugin =
         "com.diffplug.spotless:spotless-plugin-gradle:${Versions.ANDROID_GRADLE_SPOTLESS}"
+
+    object Coroutines {
+        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES_CORE}"
+    }
 
     const val junit = "junit:junit:${Versions.JUNIT}"
 }
