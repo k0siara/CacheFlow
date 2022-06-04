@@ -3,7 +3,7 @@
 📦 Kotlin Library that allows you to easily manage Cache in your app.
 
 [![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml) 
-[![License](https://img.shields.io/github/license/k0siara/cacheflow.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/github/license/k0siara/cacheflow.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow)
 
 ## Problem
@@ -16,10 +16,10 @@ CacheFlow library solves this problem for you, prioviding several ready-to-use c
 
 One way to create a in-memory cache is to use MutableStateFlow. \
 \
-Here's and example repo that holds cache after searching animals by a specific query:
+Here's and example Repository that holds cache after searching animals by a specific query:
 
 ``` kotlin
-class AnimalRepository {
+class AnimalCachedRepository {
     private val cacheMap by lazy { MutableStateFlow(HashMap<String, List<Animal>>) }
     val flow by lazy { cacheMap.asStateFlow() }
     
@@ -37,12 +37,13 @@ class AnimalRepository {
 }
 ```
 
-Imagine writing this for every cache that your app has. I've been there and decided that it's time to do something about it.
+Imagine writing this every time you want to cache something. I've been there and I've decided that it's time to do something about it.\
+That's one of the reasons why CacheFlow was created 🙂.
 \
 \
-Here's the same class, but is uses CacheFlow instead:
+Here's the same class, using CacheFlow:
 ``` kotlin
-class AnimalRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
+class AnimalCachedRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
     
     // Added only to increase readability
     @JvmInline
@@ -50,8 +51,9 @@ class AnimalRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMem
 }
 ```
 
+Want to cache more things in one Repository? That's no problem. Here's an example how you can do that:
 ``` kotlin
-class AnimalRepository {
+class AnimalCachedRepository {
     private val cacheMap by MapCacheFlow.lazyInMemoryMapCache<String, List<Animal>>()
     val flow by lazy { cacheMap.flow }
     
