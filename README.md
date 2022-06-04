@@ -14,6 +14,7 @@ Caching is crucial for most apps, especialy on mobile, where resources, cpu, mem
 The problem is that usually caching in apps is messy, the code is repeated many times and is often **non-thread-safe**, especially the in-memory cache. 
 
 ## Overview
+
 CacheFlow library solves this problem for you, prioviding several ready-to-use caching mechanisms that are **thread-safe** and based on Kotlin Flow (for now only in-memory, more to come in the future)
 
 One way to create a in-memory cache is to use MutableStateFlow. \
@@ -105,8 +106,7 @@ dependencies {
 ```
 See the top of this README to find the newest version ⬆️
 
-License
-=======
+## License
 
     Copyright 2022 Patryk Kosieradzki.
 
