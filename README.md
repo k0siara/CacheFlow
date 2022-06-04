@@ -22,7 +22,7 @@ class AnimalRepository {
     val flow by lazy { cacheMap.asStateFlow() }
     
     fun cacheAnimalsByQuery(query: String, animals: List<Animal>) {
-        cacheMap.update { it.apply { put(query, companies) } }   
+        cacheMap.update { it.apply { put(query, animals) } }   
     }
     
     fun getCachedAnimalsByQuery(query: String): List<Animal>? {
