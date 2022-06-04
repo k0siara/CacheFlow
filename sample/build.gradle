@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def compose_version = "1.2.0-beta03"
+
 android {
     compileSdk 32
 
