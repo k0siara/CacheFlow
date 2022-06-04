@@ -2,7 +2,39 @@
 
 📦 Kotlin Library that allows you to easily manage Cache in your app.
 
-[![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml) [![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow)
+[![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml) 
+[![License](https://img.shields.io/github/license/k0siara/cacheflow.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+[![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow)
+
+## Problem
+Caching is crucial for most apps, especialy on mobile, where resources, cpu, memory and battery life are limited. It allows you to store the data somewhere and use it later without the need to perform network requests repeatedly and waste resources I mentioned before. The most basic cache type is a in-memory cache that can be stored in an object, somewhere in the code. Other types of caches also allow you to store the data in files, local databases, etc.
+
+The problem is that usually caching in apps is messy, the code is repeated many times and is often **non-thread-safe**, especially the in-memory cache. 
+
+## Overview
+CacheFlow library solves this problem for you, prioviding several ready-to-use caching mechanisms (for now only in-memory, more to come in the future)
+
+One way to create a in-memory cache is to use MutableStateFlow. See the example below:
+
+``` kotlin
+class AnimalRepository {
+    private val cacheMap by lazy { MutableStateFlow(HashMap<String, List<Animal>>) }
+    val flow by lazy { cacheMap.asStateFlow() }
+    
+    fun cacheAnimalsByQuery(query: String, animals: List<Animal>) {
+        cacheMap.update { it.apply { put(query, companies) } }   
+    }
+    
+    fun getCachedAnimalsByQuery(query: String): List<Animal>? {
+        return cacheMap.value.getOrElse(query, defaultValue = { null })
+    }
+    
+    fun invalidate() {
+        cacheMap.update { it.apply { clear() } }
+    }
+}
+```
+
 
 ## How to include in your project
 
