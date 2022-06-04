@@ -100,7 +100,7 @@ Add the dependency to your module's `build.gradle` (or `build.gradle.kts`)
 
 ``` groovy
 dependencies {
-  implementation "com.github.k0siara:cacheflow:<version>"
+    implementation "com.github.k0siara:cacheflow:<version>"
 }
 
 ```
