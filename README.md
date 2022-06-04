@@ -1,12 +1,12 @@
 # CacheFlow
 
-![Kotlin Library that allows you to easily manage Cache in your app](/assets/cacheflow_banner.png)
-
-📦 Kotlin Library that allows you to easily manage Cache in your app.
+💾 Kotlin Library that allows you to easily manage Cache in your app.
 
 [![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml) 
 [![License](https://img.shields.io/github/license/k0siara/cacheflow.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow)
+
+![Kotlin Library that allows you to easily manage Cache in your app](/assets/cacheflow_banner.png)
 
 ## Problem
 Caching is crucial for most apps, especialy on mobile, where resources, cpu, memory and battery life are limited. It allows you to store the data somewhere and use it later without the need to perform network requests repeatedly and waste resources I mentioned before. The most basic cache type is a in-memory cache that can be stored in an object, somewhere in the code. Other types of caches also allow you to store the data in files, local databases, etc.
