@@ -35,6 +35,33 @@ class AnimalRepository {
 }
 ```
 
+``` kotlin
+class AnimalRepository {
+    private val cacheMap by MapCacheFlow.lazyInMemoryMapCache<String, List<Animal>>()
+    val flow by lazy { cacheMap.flow }
+    
+    fun cacheAnimalsByQuery(query: String, animals: List<Animal>) {
+        cacheMap.save(query, animals)
+    }
+    
+    fun getCachedAnimalsByQuery(query: String): List<Animal>? {
+        return cacheMap.get(query)
+    }
+    
+    fun invalidate() {
+        cacheMap.invalidate()
+    }
+}
+```
+
+``` kotlin
+class AnimalRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
+    
+    // Added only to increase readability
+    @JvmInline
+    value class Query(val value: String)
+}
+```
 
 ## How to include in your project
 
