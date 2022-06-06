@@ -35,7 +35,7 @@ jobs:
         run: ./gradlew assemble --scan
 
       - name: Source jar
-        run: ./gradlew androidSourcesJar --scan
+        run: ./gradlew androidSourcesJar javadocJar --scan
 
       - name: Publish to MavenCentral
         run: ./gradlew publishReleasePublicationToSonatypeRepository --scan

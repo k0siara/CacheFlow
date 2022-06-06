@@ -37,10 +37,10 @@ jobs:
         run: ./gradlew assemble --scan
         
       - name: Source jar
-        run: ./gradlew androidSourcesJar --scan
+        run: ./gradlew androidSourcesJar javadocJar --scan
         
-      - name: Publish to MavenCentral
-        run: ./gradlew publishToSonatype --max-workers 1 closeAndReleaseSonatypeStagingRepository --scan
+      - name: Publish to Sonatype Staging
+        run: ./gradlew publishToSonatype --scan
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
