@@ -1,6 +1,11 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
+task javadocJar(type: Jar) {
+    archiveClassifier.set('javadoc')
+    from javadoc
+}
+
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     if (project.plugins.findPlugin('com.android.library')) {
@@ -15,7 +20,7 @@ task androidSourcesJar(type: Jar) {
 }
 
 artifacts {
-    archives androidSourcesJar
+    archives javadocJar, androidSourcesJar
 }
 
 group = PUBLISH_GROUP_ID
@@ -41,12 +46,14 @@ afterEvaluate {
                     name = PUBLISH_ARTIFACT_ID
                     description = '💾 Kotlin Library that allows you to easily manage Cache in your app.'
                     url = 'https://github.com/k0siara/CacheFlow'
+
                     licenses {
                         license {
                             name = 'The Apache Software License, Version 2.0'
                             url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                         }
                     }
+
                     developers {
                         developer {
                             id = 'k0siara'
