@@ -10,4 +10,5 @@ object Configuration {
     const val snapshotVersionName = "$versionName-SNAPSHOT"
 
     const val artifactGroup = "com.patrykkosieradzki"
+    const val artifactId = "cacheflow"
 }

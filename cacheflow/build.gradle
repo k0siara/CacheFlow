@@ -10,7 +10,7 @@ version = Configuration.versionName
 
 ext {
     PUBLISH_GROUP_ID = Configuration.artifactGroup
-    PUBLISH_ARTIFACT_ID = 'cacheflow'
+    PUBLISH_ARTIFACT_ID = Configuration.artifactId
     PUBLISH_VERSION = rootVersionName
 }
 
