@@ -2,9 +2,11 @@
 
 💾 Kotlin Library that allows you to easily manage Cache in your app.
 
-[![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml) 
+[![Android CI](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml/badge.svg)](https://github.com/k0siara/CacheFlow/actions/workflows/android.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/com.patrykkosieradzki/cacheflow.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.patrykkosieradzki%22%20AND%20a:%22cacheflow%22)
 [![License](https://img.shields.io/github/license/k0siara/cacheflow.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow)
+
+<!-- [![](https://jitpack.io/v/k0siara/cacheflow.svg)](https://jitpack.io/#k0siara/cacheflow) -->
 
 ![Kotlin Library that allows you to easily manage Cache in your app](/assets/cacheflow_banner.png)
 
@@ -15,7 +17,7 @@ The problem is that usually caching in apps is messy, the code is repeated many 
 
 ## Overview
 
-CacheFlow library solves this problem for you, prioviding several ready-to-use caching mechanisms that are **thread-safe** and based on Kotlin Flow (for now only in-memory, more to come in the future)
+CacheFlow library solves this problem for you, providing several ready-to-use caching mechanisms that are **thread-safe** and based on Kotlin Flow (for now only in-memory, more to come in the future)
 
 One way to create a in-memory cache is to use MutableStateFlow. \
 \
@@ -70,41 +72,39 @@ class AnimalCachedRepository {
 
 ## How to include in your project
 
-Add `jitpack` repository to your project root `build.gradle` (or `build.gradle.kts`)
-
-``` groovy
-// build.gradle
-allprojects {
-    repositories {
-        // ...
-        maven { url "https://jitpack.io" }
-    }
-    // ...
-}
-```
-
-For newer projects (Gradle above 6.8), you need to also update the `settings.gradle` file's `dependencyResolutionManagement` block
-
-```
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }  // <-- Add this
-    }
-}
-```
-
-Add the dependency to your module's `build.gradle` (or `build.gradle.kts`)
+[![Maven Central](https://img.shields.io/maven-central/v/com.patrykkosieradzki/cacheflow.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.patrykkosieradzki%22%20AND%20a:%22cacheflow%22)
 
 ``` groovy
 dependencies {
-    implementation "com.github.k0siara:cacheflow:<version>"
+    implementation "com.patrykkosieradzki:cacheflow:1.0.0"
 }
 
 ```
-See the top of this README to find the newest version ⬆️
+
+## SNAPSHOT 
+[![CacheFlow](https://img.shields.io/static/v1?label=snapshot&message=CacheFlow&logo=apache%20maven&color=C71A36)](https://s01.oss.sonatype.org/content/repositories/snapshots/com/patrykkosieradzki/cacheflow/) <br>
+
+<details>
+ <summary>See how to import the snapshot</summary>
+
+### Including the SNAPSHOT
+Snapshots of the current development version of CacheFlow are available, which track [the latest versions](https://s01.oss.sonatype.org/content/repositories/snapshots/com/patrykkosieradzki/cacheflow/).
+
+To import snapshot versions on your project, add the code snippet below on your gradle file.
+```Gradle
+repositories {
+   maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
+}
+```
+
+Next, add the below dependency to your **module**'s `build.gradle` file.
+```gradle
+dependencies {
+    implementation "com.patrykkosieradzki:cacheflow:1.0.0-SNAPSHOT"
+}
+```
+
+</details>
 
 ## License
 
