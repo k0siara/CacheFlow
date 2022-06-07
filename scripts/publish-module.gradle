@@ -1,11 +1,6 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-task javadocJar(type: Jar) {
-    archiveClassifier.set('javadoc')
-    from javadoc
-}
-
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     if (project.plugins.findPlugin('com.android.library')) {
@@ -19,8 +14,14 @@ task androidSourcesJar(type: Jar) {
     }
 }
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier.set('javadoc')
+    from javadoc.destinationDir
+}
+
 artifacts {
-    archives javadocJar, androidSourcesJar
+    archives androidSourcesJar
+    archives javadocJar
 }
 
 group = PUBLISH_GROUP_ID
@@ -41,6 +42,7 @@ afterEvaluate {
                 }
 
                 artifact androidSourcesJar
+                artifact javadocJar
 
                 pom {
                     name = PUBLISH_ARTIFACT_ID
