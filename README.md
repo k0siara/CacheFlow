@@ -48,7 +48,7 @@ That's one of the reasons why CacheFlow was created 🙂.
 \
 Here's the same class, using CacheFlow:
 ``` kotlin
-class AnimalCachedRepository : MapFlowCache<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
+class AnimalCachedRepository : MapCacheFlow<Query, List<Animal>> by MapCacheFlow.inMemoryMapCache() {
     
     // Added only to increase readability
     @JvmInline
