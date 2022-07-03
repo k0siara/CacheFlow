@@ -76,7 +76,7 @@ class AnimalCachedRepository {
 
 ``` groovy
 dependencies {
-    implementation "com.patrykkosieradzki:cacheflow:1.0.0"
+    implementation "com.patrykkosieradzki:cacheflow:1.1.0"
 }
 
 ```
@@ -100,7 +100,7 @@ repositories {
 Next, add the below dependency to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.patrykkosieradzki:cacheflow:1.0.0-SNAPSHOT"
+    implementation "com.patrykkosieradzki:cacheflow:1.1.0-SNAPSHOT"
 }
 ```
 
